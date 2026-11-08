@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>账号配置 · 生物竞赛作战台</title>
+<link rel="stylesheet" href="bio.css">
+<style>
+  .step { display: flex; gap: 13px; margin-bottom: 22px; }
+  .step-no {
+    flex-shrink: 0; width: 30px; height: 30px; border-radius: 9px;
+    display: grid; place-items: center; font-family: var(--mono);
+    font-size: 13px; font-weight: 700; color: var(--mint);
+    background: rgba(33,230,166,.1); border: 1px solid rgba(33,230,166,.25);
+  }
+  .step-body { flex: 1; min-width: 0; }
+  .step-body h3 { font-size: 15px; margin: 0 0 6px; }
+  .step-body p { font-size: 13.5px; margin: 0 0 10px; }
+  .code-box {
+    position: relative; border: 1px solid var(--line); border-radius: 12px;
+    background: rgba(0,0,0,.35); margin: 10px 0;
+  }
+  .code-box pre {
+    margin: 0; padding: 13px 13px 13px 13px; overflow-x: auto;
+    font-family: var(--mono); font-size: 11.5px; line-height: 1.75;
+    color: #b7ccc7; -webkit-overflow-scrolling: touch; max-height: 300px;
+  }
+  .copy-btn {
+    position: sticky; float: right; top: 8px; margin: 8px;
+    padding: 7px 13px; border-radius: 8px; font-size: 12.5px;
+    border: 1px solid rgba(33,230,166,.4); background: rgba(33,230,166,.12);
+    color: var(--mint); cursor: pointer; font-family: inherit;
+  }
+  .copy-btn:active { background: var(--mint); color: #04110c; }
+  .status {
+    display: flex; align-items: center; gap: 9px; padding: 13px 16px;
+    border-radius: 13px; border: 1px solid var(--line); font-size: 13.5px;
+    background: var(--panel); margin-bottom: 20px;
+  }
+  .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--text-faint); flex-shrink: 0; }
+  .dot.ok { background: var(--mint); box-shadow: 0 0 10px rgba(33,230,166,.7); }
+  .dot.bad { background: var(--rose); }
+  .kbd {
+    font-family: var(--mono); font-size: 12px; padding: 1px 6px;
+    border-radius: 5px; border: 1px solid var(--line-strong); color: var(--text-dim);
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="logo" href="index.html">
+      <span class="logo-mark">生</span>
+      <span><span class="t">生物竞赛作战台</span><small>BIOLAB · CHSBO</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">首页</a>
+      <a href="knowledge.html">总纲</a>
+      <a href="guide.html">指南</a>
+      <a href="plan.html">计划</a>
+      <a href="drill.html">练习</a>
+      <a href="questions.html">题库</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="hero">
+      <div class="eyebrow">账号配置</div>
+      <h1>五步开通<span>云同步</span></h1>
+      <p class="lead" style="max-width:620px">
+        不用改任何文件。按顺序做完，回到首页点「登录」就能用。
+        全程免费，不需要信用卡。
+      </p>
+    </section>
+
+    <section class="section">
+      <div class="status" id="statusBar">
+        <span class="dot" id="statusDot"></span>
+        <span id="statusText">正在检查配置…</span>
+      </div>
+    </section>
+
+    <!-- 1 -->
+    <section class="section">
+      <div class="step">
+        <div class="step-no">1</div>
+        <div class="step-body">
+          <h3>注册 Supabase</h3>
+          <p>打开 <a href="https://supabase.com" target="_blank" rel="noopener">supabase.com</a>，点右上角
+            <b>Start your project</b>，用 GitHub 账号登录（你已经有 <span class="kbd">pengyulin123</span>，最省事）。</p>
+          <p class="faint" style="margin:0">打不开就先解决网络，后面的步骤都依赖它。</p>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="step">
+        <div class="step-no">2</div>
+        <div class="step-body">
+          <h3>建一个项目</h3>
+          <p>点 <b>New project</b>，填三个值：</p>
+          <div class="table-wrap" style="margin:10px 0">
+            <table>
+              <tbody>
+                <tr><td>Name</td><td class="num">biolab</td></tr>
+                <tr><td>Database Password</td><td class="num">自己设一个，记下来</td></tr>
+                <tr><td>Region</td><td class="num">Singapore</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="faint" style="margin:0">点 Create 后等 1—2 分钟，让数据库初始化。</p>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="step">
+        <div class="step-no">3</div>
+        <div class="step-body">
+          <h3>跑两段 SQL</h3>
+          <p>左侧点 <b>SQL Editor</b> → <b>New query</b>，粘贴下面第一段，点 <b>Run</b>。
+            成功会显示 <span class="kbd">Success. No rows returned</span>。</p>
+
+          <div class="code-box">
+            <button class="copy-btn" data-copy="sql1">复制</button>
+            <pre id="sql1">create table if not exists public.user_data (
+  user_id uuid primary key references auth.users(id) on delete cascade,
+  data jsonb not null default '{}'::jsonb,
+  updated_at timestamptz not null default now()
+);
+
+alter table public.user_data enable row level security;
+
+drop policy if exists "own data" on public.user_data;
+
+create policy "own data" on public.user_data for all
+  using (auth.uid() = user_id)
+  with check (auth.uid() = user_id);</pre>
+          </div>
+
+          <p>再点 <b>New query</b>，粘贴第二段，同样 Run。</p>
+
+          <div class="code-box">
+            <button class="copy-btn" data-copy="sql2">复制</button>
+            <pre id="sql2">insert into storage.buckets (id, name, public, file_size_limit)
+values ('biolab-files', 'biolab-files', false, 52428800)
+on conflict (id) do nothing;
+
+drop policy if exists "own files" on storage.objects;
+
+create policy "own files" on storage.objects for all
+  using (bucket_id = 'biolab-files' and (storage.foldername(name))[1] = auth.uid()::text)
+  with check (bucket_id = 'biolab-files' and (storage.foldername(name))[1] = auth.uid()::text);</pre>
+          </div>
+
+          <p class="faint" style="margin:0">
+            手机粘贴长文本容易漏行，第一段共 4 条语句、第二段 3 条，都以分号结尾
+          </p>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="step">
+        <div class="step-no">4</div>
+        <div class="step-body">
+          <h3>复制两个值填进来</h3>
+          <p>左侧最下面 <b>Project Settings</b>（齿轮）→ <b>API</b>，复制
+            <b>Project URL</b> 和 <b>anon public</b> 那串长 key。</p>
+
+          <div class="field">
+            <label>Project URL</label>
+            <input id="cfgUrl" type="url" placeholder="https://xxxxxxxx.supabase.co"
+                   autocomplete="off" spellcheck="false">
+          </div>
+          <div class="field">
+            <label>anon public key</label>
+            <input id="cfgKey" type="text" placeholder="eyJhbGciOiJIUzI1NiIsInR5cCI6…"
+                   autocomplete="off" spellcheck="false">
+          </div>
+          <p class="faint" style="margin:0 0 12px">
+            只填 anon 那个。<b style="color:var(--rose)">service_role 绝对不要填</b>，那个能绕过所有权限。
+          </p>
+
+          <div class="hero-actions">
+            <button class="btn btn-primary" id="saveBtn">保存配置</button>
+            <button class="btn" id="testBtn">测试连接</button>
+            <button class="btn" id="clearBtn" style="color:var(--rose)">清除配置</button>
+          </div>
+          <p class="faint" id="cfgMsg" style="margin-top:12px"></p>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="step">
+        <div class="step-no">5</div>
+        <div class="step-body">
+          <h3>关掉邮箱验证（省事）</h3>
+          <p>Supabase 左侧 <b>Authentication</b> → <b>Providers</b> → <b>Email</b>，
+            把 <b>Confirm email</b> 关掉并保存。</p>
+          <p>不关的话，每次注册都要去邮箱点确认链接才能登录。</p>
+          <p style="margin-bottom:0">
+            然后回 <a href="index.html">首页</a>，右上角点「登录」→「去注册」，填邮箱和密码即可。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="note warn">
+        <b>国内访问提醒</b>　supabase.co 在部分网络下会慢或不通。
+        如果第 4 步「测试连接」一直失败，先用浏览器打开
+        <span class="kbd">supabase.com</span> 看看能不能访问——打不开就是网络问题，
+        换网络（切流量/换 WiFi）再试。
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner"></div>
+</footer>
+
+<button class="totop" aria-label="回到顶部">↑</button>
+
+<script src="app.js"></script>
+<script src="supabase-config.js"></script>
+<script src="account.js"></script>
+<script>
+(function () {
+  "use strict";
+  var LS_CFG = "biolab.sbcfg.v1";
+
+  function $(id) { return document.getElementById(id); }
+
+  function readCfg() {
+    try { return JSON.parse(localStorage.getItem(LS_CFG) || "{}"); } catch (e) { return {}; }
+  }
+  function writeCfg(o) {
+    try { localStorage.setItem(LS_CFG, JSON.stringify(o)); } catch (e) {}
+  }
+
+  function setStatus(kind, text) {
+    var d = $("statusDot"), t = $("statusText");
+    if (!d || !t) return;
+    d.className = "dot" + (kind ? " " + kind : "");
+    t.textContent = text;
+  }
+
+  function msg(text, color) {
+    var m = $("cfgMsg");
+    if (!m) return;
+    m.textContent = text;
+    m.style.color = color || "var(--text-faint)";
+  }
+
+  function normalizeUrl(u) {
+    u = String(u || "").trim().replace(/\/+$/, "");
+    if (u && !/^https?:\/\//i.test(u)) u = "https://" + u;
+    return u;
+  }
+
+  function testConn(url, key) {
+    return fetch(url + "/auth/v1/health", {
+      headers: { apikey: key }
+    }).then(function (r) {
+      if (r.ok) return true;
+      return r.text().then(function (t) {
+        throw new Error("HTTP " + r.status + (t ? " · " + t.slice(0, 60) : ""));
+      });
+    });
+  }
+
+  function boot() {
+    var cfg = readCfg();
+    if (cfg.url) $("cfgUrl").value = cfg.url;
+    if (cfg.anonKey) $("cfgKey").value = cfg.anonKey;
+
+    if (window.SUPABASE_CONFIG && window.SUPABASE_CONFIG.url && !cfg.url) {
+      $("cfgUrl").value = window.SUPABASE_CONFIG.url;
+      $("cfgKey").value = window.SUPABASE_CONFIG.anonKey || "";
+    }
+
+    if (cfg.url && cfg.anonKey) {
+      setStatus("", "已保存配置，正在测试连接…");
+      testConn(cfg.url, cfg.anonKey).then(function () {
+        setStatus("ok", "配置有效，服务器可以连通");
+      }).catch(function (e) {
+        setStatus("bad", "配置已保存，但连不上：" + e.message);
+      });
+    } else {
+      setStatus("bad", "还没有配置，按下面 5 步做一遍");
+    }
+
+    // 复制按钮
+    document.querySelectorAll("[data-copy]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var id = this.getAttribute("data-copy");
+        var txt = $(id).textContent;
+        var done = function () {
+          btn.textContent = "已复制";
+          setTimeout(function () { btn.textContent = "复制"; }, 1500);
+        };
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(txt).then(done).catch(fallback);
+        } else {
+          fallback();
+        }
+        function fallback() {
+          var ta = document.createElement("textarea");
+          ta.value = txt;
+          ta.style.cssText = "position:fixed;left:-9999px";
+          document.body.appendChild(ta);
+          ta.select();
+          try { document.execCommand("copy"); done(); } catch (e) { alert("复制失败，请长按代码手动选择"); }
+          ta.remove();
+        }
+      });
+    });
+
+    $("saveBtn").addEventListener("click", function () {
+      var url = normalizeUrl($("cfgUrl").value);
+      var key = $("cfgKey").value.trim();
+      if (!url || !key) { msg("两个都要填", "var(--rose)"); return; }
+      if (!/^https:\/\/[a-z0-9-]+\.supabase\.co$/i.test(url)) {
+        msg("URL 格式看起来不对，应该是 https://xxxx.supabase.co", "var(--amber)");
+      }
+      writeCfg({ url: url, anonKey: key, table: "user_data" });
+      $("cfgUrl").value = url;
+      setStatus("", "已保存，正在测试…");
+      msg("已保存，正在测试连接…");
+      testConn(url, key).then(function () {
+        setStatus("ok", "配置有效，服务器可以连通");
+        msg("配置成功，回首页点「登录」即可", "var(--mint)");
+      }).catch(function (e) {
+        setStatus("bad", "保存了，但连不上：" + e.message);
+        msg("连不上服务器。检查 URL 是否填对，或切换网络再试。", "var(--rose)");
+      });
+    });
+
+    $("testBtn").addEventListener("click", function () {
+      var url = normalizeUrl($("cfgUrl").value);
+      var key = $("cfgKey").value.trim();
+      if (!url || !key) { msg("先把两个值填上", "var(--rose)"); return; }
+      msg("测试中…");
+      testConn(url, key).then(function () {
+        setStatus("ok", "连接正常");
+        msg("连接正常", "var(--mint)");
+      }).catch(function (e) {
+        setStatus("bad", "连不上：" + e.message);
+        msg("连不上：" + e.message, "var(--rose)");
+      });
+    });
+
+    $("clearBtn").addEventListener("click", function () {
+      if (!confirm("清除本机保存的配置？已经同步到云端的数据不会被删除。")) return;
+      try { localStorage.removeItem(LS_CFG); } catch (e) {}
+      $("cfgUrl").value = "";
+      $("cfgKey").value = "";
+      setStatus("bad", "配置已清除");
+      msg("已清除", "var(--text-faint)");
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", boot);
+  } else {
+    boot();
+  }
+})();
+</script>
+</body>
+</html>

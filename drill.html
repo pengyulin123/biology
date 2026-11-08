@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>每日一练 · 生物竞赛作战台</title>
+<meta name="description" content="12 道判断式题目，完全模拟联赛题型与计分规则：答对 4 个 2 分、3 个 1 分、2 个 0.2 分。">
+<link rel="stylesheet" href="bio.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="logo" href="index.html">
+      <span class="logo-mark">生</span>
+      <span><span class="t">生物竞赛作战台</span><small>BIOLAB · CHSBO</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">首页</a>
+      <a href="knowledge.html">总纲</a>
+      <a href="guide.html">指南</a>
+      <a href="plan.html">计划</a>
+      <a href="drill.html">练习</a>
+      <a href="questions.html">题库</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="hero rise">
+      <div class="eyebrow">05 · 每日一练</div>
+      <h1>12 道题，<span>练的是"确定感"</span></h1>
+      <p class="lead" style="max-width:660px">
+        下面 12 道题完全按联赛的形式出：每题 4 个陈述，逐个判断对错。
+        计分也照搬——答对 4 个得 2 分，3 个得 1 分，2 个只有 0.2 分，1 个及以下 0 分。
+        满分 24 分。先自己做完，再看解析。
+      </p>
+      <div class="grid g4" style="margin-top:22px">
+        <div class="stat"><div class="n">12<em>题</em></div><div class="k">覆盖 8 个板块</div></div>
+        <div class="stat"><div class="n">4<em>选项</em></div><div class="k">每题独立判断 T / F</div></div>
+        <div class="stat"><div class="n">2<em>分</em></div><div class="k">单题满分</div></div>
+        <div class="stat"><div class="n">24<em>分</em></div><div class="k">本卷满分</div></div>
+      </div>
+    </section>
+
+    <div class="tabs rise d1" id="dtabs">
+      <button data-tab="quiz" class="on">练习</button>
+      <button data-tab="wrong">错题本<span class="cnt" id="wrongCnt">0</span></button>
+      <button data-tab="bank">题库</button>
+    </div>
+
+    <section class="pane on" id="pane-quiz">
+    <section class="section rise d1">
+      <div class="note">
+        <b>怎么做</b>　每个选项点一下 T 或 F（再点一次取消）。全部做完后点底部「提交判分」。
+        判分后每题会显示你答对几个、得几分，以及完整的解析。历史成绩存在本机浏览器里。
+      </div>
+    </section>
+
+    <section class="section rise d2">
+      <div class="section-head">
+        <h2>开始作答</h2>
+        <span class="faint">已答 <b id="answeredCount" class="mono hl">0 / 12</b></span>
+      </div>
+      <div id="qlist"></div>
+
+      <div class="score-bar">
+        <div>
+          <span class="sc" id="scoreNum">—</span>
+          <span class="faint" style="font-size:12px;margin-left:6px">交卷后出分</span>
+        </div>
+        <button class="btn btn-primary" id="gradeBtn">提交判分</button>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><h2>历史记录</h2><span class="faint">最近 30 次</span></div>
+      <div class="card" id="hist"></div>
+    </section>
+
+    </section>
+
+    <section class="pane" id="pane-wrong">
+      <div id="wrongOut"></div>
+      <div class="note" style="margin-top:16px">
+        <b>错题本会自己长大</b>　每次提交判分，答对 3 个及以下选项的题会被自动收进来，
+        连同你的作答、正确答案和解析。点「相关：xxx」可以跳到总纲里对应的知识点。
+      </div>
+    </section>
+
+    <section class="pane" id="pane-bank">
+      <div class="res-head"><span id="bankStat">—</span></div>
+
+      <div class="card" style="margin-bottom:12px">
+        <h3 style="font-size:14px;margin:0 0 9px">粘贴题目导入</h3>
+        <textarea id="bankText" class="bank-ta" placeholder="关于酶的叙述，判断正误。&#10;A. 酶通过降低活化能加快反应 (T)&#10;B. 绝大多数酶的化学本质是蛋白质 (T)&#10;C. 竞争性抑制剂改变 Vmax (F)&#10;D. 所有酶的最适 pH 均为 7 (F)&#10;解析：竞争性抑制剂只改变表观 Km。"></textarea>
+        <p class="faint" style="margin:8px 0 0;line-height:1.7">
+          格式：题干一行 → A/B/C/D 四行选项 → 每项末尾用 <b>(T)</b> 或 <b>(F)</b> → 可选的「解析：」一行。
+          多道题之间空一行，一次可以粘一整套。
+        </p>
+        <div class="hero-actions" style="margin-top:12px">
+          <button class="btn btn-primary btn-sm" id="bankParse">解析并导入</button>
+          <button class="btn btn-sm" id="bankFile">选 JSON 文件</button>
+          <button class="btn btn-sm" id="bankExport">导出</button>
+          <button class="btn btn-sm" id="bankClear" style="color:var(--rose)">清空</button>
+        </div>
+        <input type="file" id="bankFileInput" accept=".json,application/json" style="display:none">
+      </div>
+
+      <div class="card bank-doc-panel" style="margin-bottom:18px">
+        <div class="section-head" style="margin-bottom:12px">
+          <h3 style="font-size:14px;margin:0">资料库 / 文件上传</h3>
+          <span class="tag tag-sky">分类存放</span>
+        </div>
+
+        <div class="bank-upload-tools">
+          <select id="bankFolderSelect" class="bank-select">
+            <option value="Word">Word</option>
+            <option value="PDF">PDF</option>
+            <option value="Text">Text</option>
+            <option value="Other">Other</option>
+            <option value="真题">真题</option>
+            <option value="讲义">讲义</option>
+            <option value="题库">题库</option>
+          </select>
+          <input id="bankFolderName" class="bank-input" type="text" placeholder="自定义文件夹名（可选）">
+          <button class="btn btn-sm btn-primary" id="bankUploadBtn">上传文件</button>
+        </div>
+        <input type="file" id="bankUploadInput" accept=".doc,.docx,.pdf,.txt,.md,.rtf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/pdf,text/plain" multiple style="display:none">
+
+        <div id="bankFileFolders" class="bank-folder-bar" style="margin-top:14px"></div>
+        <div id="bankFileEmpty" class="empty-box" style="display:none">暂无上传文件，支持 Word / PDF / Text 文档。</div>
+        <div id="bankFileList" class="bank-file-list" style="margin-top:14px"></div>
+      </div>
+
+      <div id="bankList"></div>
+
+      <div class="note" style="margin-top:16px">
+        <b>导入的题会出现在「练习」里</b>　和内置的 12 道题混在一起，判分规则完全一致（答对 4 个 2 分、3 个 1 分、2 个 0.2 分）。
+        答错的照样进错题本。题目存在本机，可以「导出」成 JSON 备份或分享。
+      </div>
+    </section>
+
+
+    <section class="section">
+      <div class="note warn">
+        <b>提示</b>　这 12 题是本站在公开知识范围内自编的模拟题，用来说明题型和计分方式，
+        不是联赛真题。真题请通过学校、竞赛班或正规汇编获取；做完真题再回来对比，才知道自己离分数线有多远。
+      </div>
+      <div class="hero-actions">
+        <a class="btn" href="guide.html">回资源库找真题清单 →</a>
+        <a class="btn" href="plan.html">看学习计划</a>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner"></div>
+</footer>
+
+<button class="totop" aria-label="回到顶部">↑</button>
+<script src="app.js"></script>
+<script src="quiz-data.js"></script>
+<script src="drill.js"></script>
+<script src="kg-texts.js"></script>
+<script src="edit.js"></script>
+<script src="bank-enhancements.js"></script>
+<script src="bank-library-tools.js"></script>
+<script src="supabase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

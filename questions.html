@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>题库 · 生物竞赛作战台</title>
+<meta name="description" content="浏览全部练习题：按板块、关键词筛选，10 题一页翻页查看。">
+<link rel="stylesheet" href="bio.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="logo" href="index.html">
+      <span class="logo-mark">生</span>
+      <span><span class="t">生物竞赛作战台</span><small>BIOLAB · CHSBO</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">首页</a>
+      <a href="knowledge.html">总纲</a>
+      <a href="guide.html">指南</a>
+      <a href="plan.html">计划</a>
+      <a href="drill.html">练习</a>
+      <a href="questions.html">题库</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="hero rise">
+      <div class="eyebrow">题库</div>
+      <h1>全部题目，<span>一页十道</span></h1>
+      <p class="lead" style="max-width:640px">
+        内置模拟题 + 你自己导入的题，都在这里。可以按关键词搜、按来源筛，
+        每页 10 道，翻页浏览。答案直接标在选项上，解析点开就看。
+      </p>
+    </section>
+
+    <section class="section rise d1">
+      <div class="toolbar">
+        <div class="search-box">
+          <input id="qSearch" type="search" placeholder="搜题干、选项、解析…" autocomplete="off">
+          <span class="ico">⌕</span>
+        </div>
+      </div>
+      <div class="chips" id="qFilter" style="margin-bottom:14px">
+        <button class="chip on" data-f="all">全部</button>
+        <button class="chip" data-f="builtin">内置</button>
+        <button class="chip" data-f="custom">我的题目</button>
+      </div>
+
+      <div class="res-head"><span id="qStat">—</span><span id="qPageInfo">—</span></div>
+
+      <div id="qList"></div>
+
+      <div class="pager" id="qPager"></div>
+    </section>
+
+    <section class="section">
+      <div class="note">
+        <b>想加题？</b>　去 <a href="drill.html">练习</a> 页的「题库」标签，粘贴纯文本或导入 JSON。
+        导入后这里会自动出现。登录账号后，题目会同步到云端，换设备也能看到。
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner"></div>
+</footer>
+
+<button class="totop" aria-label="回到顶部">↑</button>
+
+<script src="quiz-data.js"></script>
+<script src="app.js"></script>
+<script src="questions.js"></script>
+<script src="kg-texts.js"></script>
+<script src="edit.js"></script>
+<script src="supabase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

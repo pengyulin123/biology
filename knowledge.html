@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>知识总纲 · 生物竞赛作战台</title>
+<meta name="description" content="4995 个生物竞赛知识点、2362 条专业术语，支持目录树浏览、全文检索与闪卡记忆。">
+<link rel="stylesheet" href="bio.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="logo" href="index.html">
+      <span class="logo-mark">生</span>
+      <span><span class="t">生物竞赛作战台</span><small>BIOLAB · CHSBO</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">首页</a>
+      <a href="knowledge.html">总纲</a>
+      <a href="guide.html">指南</a>
+      <a href="plan.html">计划</a>
+      <a href="drill.html">练习</a>
+      <a href="questions.html">题库</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <section class="hero rise">
+      <div class="eyebrow">知识库</div>
+      <h1>18 册 · <span>4995 个知识点</span></h1>
+      <p class="lead" style="max-width:660px">
+        按册 → 章 → 条目三级组织，每条标注 ★ 星级（★★★ 为联赛与省选高频）。
+        支持标题检索、正文全文检索、术语反查与闪卡记忆。正文按册按需加载，不会一次拖垮手机。
+      </p>
+    </section>
+
+    <div class="tabs rise d1" id="tabs">
+      <button data-tab="tree" class="on">总纲<span class="cnt" id="cntTree"></span></button>
+      <button data-tab="terms">术语<span class="cnt" id="cntTerm"></span></button>
+      <button data-tab="cards">闪卡</button>
+      <button data-tab="hot">重点</button>
+    </div>
+
+    <!-- ============ 总纲 ============ -->
+    <section class="pane on" id="pane-tree">
+      <div class="toolbar">
+        <div class="search-box">
+          <input id="qTree" type="search" placeholder="搜知识点标题：光呼吸 / 动作电位 / Koch 假设…" autocomplete="off">
+          <span class="ico">⌕</span>
+        </div>
+      </div>
+      <div class="chips" id="starChips" style="margin-bottom:12px">
+        <button class="chip on" data-star="0">全部星级</button>
+        <button class="chip" data-star="3">仅 ★★★</button>
+        <button class="chip" data-star="2">★★ 及以上</button>
+      </div>
+      <div id="treeSearchOut" style="display:none"></div>
+      <div id="treeOut"></div>
+      <p class="faint" style="margin-top:14px">
+        提示：点击册 → 章 → 条目，正文从底部弹出；弹窗内可用「上一条 / 下一条」连续翻。
+      </p>
+    </section>
+
+    <!-- ============ 术语 ============ -->
+    <section class="pane" id="pane-terms">
+      <div class="toolbar">
+        <div class="search-box">
+          <input id="qTerm" type="search" placeholder="搜术语：中文 / 英文 / 释义内容…" autocomplete="off">
+          <span class="ico">⌕</span>
+        </div>
+      </div>
+      <div class="chips" id="termChips" style="margin-bottom:12px">
+        <button class="chip on" data-book="">全部</button>
+        <button class="chip" data-book="生化">生化</button>
+        <button class="chip" data-book="分子">分子</button>
+        <button class="chip" data-book="细胞">细胞</button>
+        <button class="chip" data-book="遗传">遗传</button>
+        <button class="chip" data-book="动物">动物</button>
+        <button class="chip" data-book="植物">植物</button>
+        <button class="chip" data-book="微生物">微生物</button>
+        <button class="chip" data-book="动物生理">动物生理</button>
+        <button class="chip" data-book="植物生理">植物生理</button>
+        <button class="chip" data-book="行为">行为</button>
+        <button class="chip" data-book="生态">生态</button>
+        <button class="chip" data-book="系统">系统</button>
+        <button class="chip" data-book="进化">进化</button>
+        <button class="chip" data-book="信息">信息</button>
+        <button class="chip" data-book="技术">技术</button>
+        <button class="chip" data-book="补充">补充</button>
+      </div>
+      <div id="termOut"></div>
+      <p class="faint" style="margin-top:14px">
+        点每条末尾的「出处」标签，可直接跳到总纲对应册章，看上下文。
+      </p>
+    </section>
+
+    <!-- ============ 闪卡 ============ -->
+    <section class="pane" id="pane-cards">
+      <div class="toolbar">
+        <div class="chips" id="cardMode">
+          <button class="chip on" data-mode="term">术语卡</button>
+          <button class="chip" data-mode="point">知识点卡</button>
+        </div>
+        <button class="chip" id="fcCloze">挖空</button>
+        <select id="cardBookSel" style="display:none;padding:8px 10px;border-radius:10px;background:rgba(255,255,255,.05);color:var(--text);border:1px solid var(--line-strong);font-family:inherit;font-size:13px"></select>
+      </div>
+      <div class="fc-stage" id="fcStage"></div>
+      <div class="note" style="margin-top:16px">
+        <b>怎么用</b>　点卡片翻面，看完自己判断：能复述 → 点「记住了」，这张就不再出现；
+        说不清 → 点「再练一次」，它会轮到本组末尾。进度存在本机，关掉浏览器不丢。
+      </div>
+    </section>
+
+    <!-- ============ 重点 ============ -->
+    <section class="pane" id="pane-hot">
+      <div id="hotOut"></div>
+      <div class="note warn" style="margin-top:16px">
+        <b>关于"真题考频"</b>　本页按总纲自带的 ★ 星级聚合，不是真题统计。
+        真题原文未导入（订阅类知识库不允许整份导出），如果你手上有真题 PDF，
+        可以自己跑一次统计：见仓库 README 的「导入真题」一节。
+      </div>
+    </section>
+
+  </div>
+
+<!-- ============ 阅读弹窗 ============ -->
+<div class="sheet" id="sheet">
+  <div class="sheet-mask"></div>
+  <div class="sheet-body">
+    <span class="grab"></span>
+    <div class="sheet-head">
+      <div class="sheet-title">
+        <h3 id="sheetTitle">—</h3>
+        <div class="sheet-meta" id="sheetMeta"></div>
+      </div>
+      <button class="sheet-close" id="sheetClose">✕</button>
+    </div>
+    <div class="sheet-main" id="sheetMain"></div>
+    <div class="sheet-nav">
+      <button class="btn btn-sm" id="sheetPrev">← 上一条</button>
+      <button class="btn btn-sm" id="sheetNext">下一条 →</button>
+    </div>
+  </div>
+</div>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner"></div>
+</footer>
+
+<button class="totop" aria-label="回到顶部">↑</button>
+
+<script src="kg-index.js"></script>
+<script src="kg-terms.js"></script>
+<script src="kg-exam.js"></script>
+<script src="app.js"></script>
+<script src="kg.js"></script>
+<script src="kg-texts.js"></script>
+<script src="edit.js"></script>
+<script src="supabase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>

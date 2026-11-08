@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>指南 · 生物竞赛作战台</title>
+<meta name="description" content="全国中学生生物学竞赛赛制、知识地图与资源清单。">
+<link rel="stylesheet" href="bio.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="logo" href="index.html">
+      <span class="logo-mark">生</span>
+      <span><span class="t">生物竞赛作战台</span><small>BIOLAB · CHSBO</small></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">首页</a>
+      <a href="knowledge.html">总纲</a>
+      <a href="guide.html">指南</a>
+      <a href="plan.html">计划</a>
+      <a href="drill.html">练习</a>
+      <a href="questions.html">题库</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <div class="tabs" id="gtabs">
+      <button data-tab="race" class="on">赛制</button>
+      <button data-tab="map">知识地图</button>
+      <button data-tab="res">资源库</button>
+    </div>
+  </div>
+
+<section class="pane on" id="pane-race">
+  <div class="wrap">
+
+    <section class="hero rise">
+      <div class="eyebrow">01 · 赛制地图</div>
+      <h1>五级筛选，<span>只有两次机会</span></h1>
+      <p class="lead" style="max-width:660px">
+        从校内的初赛到国际赛场，中间要过五道关。每一关的形式、题量、通过条件都不同，
+        而高中阶段你最多只能参加 <b class="hl">2 次</b>全国联赛——这意味着容错率极低。
+      </p>
+    </section>
+
+    <!-- 晋级链 -->
+    <section class="section rise d1">
+      <div class="section-head"><h2>晋级链</h2><span class="faint">从上到下逐级筛选</span></div>
+      <div class="chain">
+
+        <div class="chain-node">
+          <div class="idx">01</div>
+          <div class="body">
+            <h3>省级初赛 / 预赛 <span class="tag tag-sky" style="margin-left:6px">部分省份</span></h3>
+            <p>由各省竞赛分会自行命题、自行组织，时间多在 3—4 月。唯一作用是<b>取得本省联赛资格</b>，成绩不带入联赛。湖南是否设初赛、何时考，以省内通知为准。</p>
+          </div>
+        </div>
+        <div class="chain-arrow">↓</div>
+
+        <div class="chain-node">
+          <div class="idx">02</div>
+          <div class="body">
+            <h3>全国中学生生物学联赛 CHSBO <span class="tag tag-mint" style="margin-left:6px">主战场</span></h3>
+            <p>每年 <b>5 月第二个周日</b>，全国统一命题、统一时间。笔试，<b>72 题 / 144 分 / 150 分钟</b>。产出省级一、二、三等奖，以及各省<b>省队</b>名额。</p>
+          </div>
+        </div>
+        <div class="chain-arrow">↓</div>
+
+        <div class="chain-node">
+          <div class="idx">03</div>
+          <div class="body">
+            <h3>全国决赛 CNBO <span class="tag tag-amber" style="margin-left:6px">8 月</span></h3>
+            <p>由联赛各省排名前列者组成省队参赛。理论考试 + 四门实验考试，各占约一半分值。决出金、银、铜牌，<b>金牌前 50 名进入国家集训队</b>。</p>
+          </div>
+        </div>
+        <div class="chain-arrow">↓</div>
+
+        <div class="chain-node">
+          <div class="idx">04</div>
+          <div class="body">
+            <h3>冬令营 / 国家队选拔</h3>
+            <p>次年 1—2 月，从 50 名集训队员中选拔 <b>4 人</b>组成国家队。</p>
+          </div>
+        </div>
+        <div class="chain-arrow">↓</div>
+
+        <div class="chain-node">
+          <div class="idx">05</div>
+          <div class="body">
+            <h3>国际生物学奥林匹克 IBO</h3>
+            <p>次年 7 月举办，理论与实验考试，与各国国家队同场。</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 联赛计分规则 -->
+    <section class="section rise d2">
+      <div class="section-head"><h2>联赛怎么算分</h2><span class="tag tag-rose">最重要的一节</span></div>
+
+      <p>
+        联赛不是选择题。每题给出 <b>4 个陈述</b>，你要逐个判断对错，在机读卡上涂 T（正确）或 F（错误）。
+        一道题里可能 1 个对、可能 3 个对，于是产生了一套很特殊的阶梯计分：
+      </p>
+
+      <div class="table-wrap" style="margin-top:14px">
+        <table>
+          <thead>
+            <tr><th>这道题你答对了几个选项</th><th>得分</th><th>含义</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>4 个（全对）</td><td class="num hl">2.0</td><td>满分，说明这道题你是真懂了</td></tr>
+            <tr><td>3 个</td><td class="num hl">1.0</td><td>半价，通常是一个细节记混</td></tr>
+            <tr><td>2 个</td><td class="num">0.2</td><td>近乎白做，蒙的水平</td></tr>
+            <tr><td>0 或 1 个</td><td class="num">0</td><td>零分</td></tr>
+            <tr><td>整题空白 / 四个全涂同一</td><td class="num">0</td><td>规则明确不得分</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note warn">
+        <b>这套规则的三个推论</b><br>
+        ① <b>2 分与 1 分之间是断崖</b>：从 3 个对到 4 个对，收益翻倍。所以"差一点"在联赛里等于没做，
+        细节题（数字、方向、例外）必须抠到底。<br>
+        ② <b>0.2 分几乎等于 0</b>：靠"感觉"蒙对两个没有意义，蒙对三个才算分。<br>
+        ③ <b>空着是纯亏</b>：按规则推算，整卷完全随机填涂的期望值约为 <b>32 分</b>（满分 144），
+        而空白是 0 分。时间不够时，把剩下的题都填满（注意别四格全涂同一）。
+      </div>
+
+      <p class="faint" style="margin-top:14px">
+        推论③的算法：4 个选项的随机判断中，全对概率 1/16、对 3 个 4/16、对 2 个 6/16，
+        期望 = 2×1/16 + 1×4/16 + 0.2×6/16 ≈ 0.45 分/题，72 题约 32 分。这是纯概率推算，仅用于说明"不要留空"。
+      </p>
+    </section>
+
+    <!-- 四大题区 -->
+    <section class="section rise d3">
+      <div class="section-head"><h2>试卷结构：四大题区，平均分配</h2></div>
+      <p>72 道题被均分为 4 个板块，每板块 18 题、36 分。任何一个板块塌陷，都直接砍掉四分之一的分数。</p>
+      <div class="table-wrap" style="margin-top:14px">
+        <table>
+          <thead>
+            <tr><th>题区</th><th>题号</th><th>题量</th><th>分值</th><th>覆盖内容</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span class="tag tag-mint">一</span></td>
+              <td class="num">1 — 18</td><td class="num">18</td><td class="num">36</td>
+              <td>生物化学 · 分子生物学 · 细胞生物学</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-sky">二</span></td>
+              <td class="num">19 — 36</td><td class="num">18</td><td class="num">36</td>
+              <td>微生物学 · 植物学 · 植物生理学</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-amber">三</span></td>
+              <td class="num">37 — 54</td><td class="num">18</td><td class="num">36</td>
+              <td>动物学 · 生理学 · 生态学</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-violet">四</span></td>
+              <td class="num">55 — 72</td><td class="num">18</td><td class="num">36</td>
+              <td>遗传学 · 演化生物学 · 生物信息学</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="faint" style="margin-top:10px">依据 2025—2026 赛季联赛试卷结构整理，各板块内部题数每年可能微调。</p>
+    </section>
+
+    <!-- 决赛 -->
+    <section class="section rise d4">
+      <div class="section-head"><h2>决赛：理论 + 四门实验</h2></div>
+      <div class="grid g2">
+        <div class="card">
+          <h3>理论考试</h3>
+          <p style="font-size:13.5px;margin:0">
+            与联赛同一套判断式题型，但题量更大、时长更长。近年为 72 道大题、288 个判断点、144 分、3 小时。
+            理论成绩靠前者方可进入实验环节。
+          </p>
+        </div>
+        <div class="card">
+          <h3>实验考试</h3>
+          <p style="font-size:13.5px;margin:0">
+            分四门进行，占决赛总分约一半：<b>动物生物学与生态学</b>、<b>植物生物学</b>、
+            <b>细胞生物学 / 发育生物学与遗传学</b>、<b>生物化学与分子生物学</b>。
+            这是联赛阶段完全没练过的部分。
+          </p>
+        </div>
+        <div class="card">
+          <h3>奖牌与名额</h3>
+          <p style="font-size:13.5px;margin:0">
+            以 2026 年第 35 届为例：金牌 150 人、银牌 260 人、铜牌 170 人，共 580 人参赛。
+            金牌前 50 名进入国家集训队。
+          </p>
+        </div>
+        <div class="card">
+          <h3>联赛奖项的用处</h3>
+          <p style="font-size:13.5px;margin:0">
+            省级一、二、三等奖在强基计划、综合评价中有实际价值；决赛金银牌可获强基破格入围；
+            进入国家集训队则取得保送资格。这是竞赛生最主要的现实回报路径。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 名额 -->
+    <section class="section">
+      <div class="section-head"><h2>名额：省一与省队</h2></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>项目</th><th>规则（近年）</th><th>说明</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>联赛一等奖</td>
+              <td class="num">基础名额上限 40 人</td>
+              <td>各省另有奖励名额，与实际参赛人数、往年成绩挂钩</td>
+            </tr>
+            <tr>
+              <td>联赛二等奖</td>
+              <td class="num">上限 200 人</td>
+              <td>按各省参赛规模分配</td>
+            </tr>
+            <tr>
+              <td>联赛三等奖</td>
+              <td class="num">上限 300 人</td>
+              <td>同上</td>
+            </tr>
+            <tr>
+              <td>省队名额</td>
+              <td class="num">10 + 上年本省进决赛前 100 人数</td>
+              <td>湖南曾按此规则执行，具体以当年通知为准</td>
+            </tr>
+            <tr>
+              <td>参赛资格</td>
+              <td class="num">高一、高二可报，高三禁赛</td>
+              <td>每人高中阶段最多参加 2 次全国联赛</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="note">
+        <b>省队有多难？</b>　以湖南为例，省队名额长期在十几人量级，而全省参赛人数约两千人上下。
+        也就是说，你需要站到全省前 1% 左右才能进省队——而这批人绝大多数来自几所竞赛强校的系统训练。
+        这个数字不是用来劝退的，是用来决定"要不要投入"的。
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#guide-map">下一步：看知识地图 →</a>
+        <a class="btn" href="plan.html">直接看学习计划</a>
+      </div>
+    </section>
+
+  </div>
+</section>
+<section class="pane" id="pane-map">
+  <div class="wrap">
+
+    <section class="hero rise">
+      <div class="eyebrow">02 · 知识地图</div>
+      <h1>12 个板块，<span>4 条赛道</span></h1>
+      <p class="lead" style="max-width:660px">
+        联赛试卷把 12 个板块压成 4 个题区，每区 18 题。所以你的目标不是"精通某一科"，
+        而是<b class="hl">让 12 个板块都达到能拿 1 分的水平</b>。下面每个模块都标了对应题区、核心考点和该用哪本书。
+      </p>
+      <div class="grid g4" style="margin-top:22px">
+        <div class="stat"><div class="n" style="font-size:18px;color:var(--mint)">题区一</div><div class="k">生化 · 分子 · 细胞</div></div>
+        <div class="stat"><div class="n" style="font-size:18px;color:var(--sky)">题区二</div><div class="k">微生物 · 植物学 · 植物生理</div></div>
+        <div class="stat"><div class="n" style="font-size:18px;color:var(--amber)">题区三</div><div class="k">动物学 · 动物生理 · 生态</div></div>
+        <div class="stat"><div class="n" style="font-size:18px;color:var(--violet)">题区四</div><div class="k">遗传 · 演化 · 生物信息</div></div>
+      </div>
+    </section>
+
+    <!-- 学习顺序 -->
+    <section class="section rise d1">
+      <div class="section-head"><h2>先学哪个：三轮顺序</h2><span class="tag tag-mint">建议</span></div>
+      <div class="grid g3">
+        <div class="card">
+          <span class="tag tag-sky">第一轮 · 铺面</span>
+          <h3 style="margin-top:10px">3—5 个月</h3>
+          <p style="font-size:13.5px;margin:0">
+            用《普通生物学》通读一遍，不求记住，只求<b>建立坐标</b>：知道有哪些学科、每个学科在讲什么。
+            同时读完植物学、动物学这两门"看得见图"的，它们最容易上手。
+          </p>
+        </div>
+        <div class="card">
+          <span class="tag tag-mint">第二轮 · 见底</span>
+          <h3 style="margin-top:10px">6—9 个月</h3>
+          <p style="font-size:13.5px;margin:0">
+            逐科上大本教材：细胞、生化、遗传、生理。这一轮要开始做<b>课后题</b>和真题分类，
+            目标是每个板块能独立讲清概念之间的关系。
+          </p>
+        </div>
+        <div class="card">
+          <span class="tag tag-amber">第三轮 · 补漏</span>
+          <h3 style="margin-top:10px">3—4 个月</h3>
+          <p style="font-size:13.5px;margin:0">
+            做整卷真题、掐时间、建错题本。按<b>板块失分率</b>回炉，不再追求新知识，
+            只把已经见过的东西变成能拿 2 分的东西。
+          </p>
+        </div>
+      </div>
+      <div class="note">
+        <b>为什么先读植物、动物？</b>　因为它们依赖记忆和图像，反馈快、成就感强，
+        零基础最容易在这里建立"我能学下去"的信念。而生化、分子是抽象且需要化学基础的，
+        一上来就啃，绝大多数人是读到第三章放弃的。
+      </div>
+    </section>
+
+    <!-- 模块列表 -->
+    <section class="section rise d2">
+      <div class="section-head"><h2>12 个板块</h2><span class="faint">难度 ★ 越多越难</span></div>
+
+      <div class="grid g2">
+
+        <!-- 题区一 -->
+        <div class="mod">
+          <div class="mod-top">
+            <div class="mod-ico">⚗️</div>
+            <div class="mod-title">
+              <h3>生物化学</h3>
+              <div class="mod-meta">题区一 · 难度 ★★★★</div>
+            </div>
+          </div>
+          <div class="mod-body">
+            <ul>
+              <li>蛋白质：氨基酸分类、各级结构、变性</li>
+              <li>酶：动力学、抑制作用类型、别构调节</li>
+              <li>糖代谢：糖酵解、三羧酸循环、氧化磷酸化</li>
+              <li>脂类与氨基酸代谢要点</li>
+            </ul>
+          </div>
+          <div class="mod-foot"><b>教材</b>　王镜岩《生物化学》／杨荣武《生物化学原理》</div>
+        </div>
+
+        <div class="mod">
+          <div class="mod-top">
+            <div class="mod-ico">🧬</div>
+            <div class="mod-title">
+              <h3>分子生物学</h3>
+              <div class="mod-meta">题区一 · 难度 ★★★★</div>
+            </div>
+          </div>
+          <div class="mod-body">
+            <ul>
+              <li>中心法则、复制、转录、翻译全过程</li>
+              <li>基因表达调控：操纵子、真核转录因子</li>
+              <li>PCR、电泳、测序、基因编辑等实验技术</li>
+              <li>突变类型与修复机制</li>
+            </ul>
+          </div>
+          <div class="mod-foot"><b>教材</b>　朱玉贤《现代分子生物学》</div>
+        </div>
+
+        <div class="mod">
+          <div class="mod-top">
+            <div class="mod-ico">🔬</div>
+            <div class="mod-title">
+              <h3>细胞生物学</h3>
+              <div class="mod-meta">题区一 · 难度 ★★★</div>
+            </div>
+          </div>
+          <div class="mod-body">
+            <ul>
+              <li>膜结构与跨膜运输</li>
+              <li>细胞器结构与功能分工</li>
+              <li>细胞骨架、细胞连接、细胞外基质</li>
+              <li>细胞周期、有丝分裂与减数分裂</li>
+              <li>信号转导通路、细胞凋亡</li>
+            </ul>
+          </div>
+          <div class="mod-foot"><b>教材</b>　翟中和《细胞生物学》</div>
+        </div>
+
+        <div class="mod">
+          <div class="mod-top">
+            <div class="mod-ico">🦠</div>
+            <div class="mod-title">
+              <h3>微生物学</h3>
+              <div class="mod-meta">题区二 · 难度 ★★★</div>
+            </div>
+          </div>
+          <div class="mod-body">
+            <ul>
+              <li>细菌形态、结构与革兰氏染色</li>
+              <li>病毒结构与复制周期</li>
+              <li>真菌、放线菌、古菌</li>
+              <li>微生物营养、生长曲线、代谢</li>
+              <li>灭菌消毒、免疫与病原基础</li>
+            </ul>
+          </div>
+          <div class="mod-foot"><b>教材</b>　周德庆《微生物学教程》／沈萍《微生物学》</div>
+        </div>
+
+        <!-- 题区二 -->
+        <div class="mod">
+          <div class="mod-top">
+            <div class="mod-ico">🌿</div>
+            <div class="mod-title">
+              <h3>植物学</h3>
+              <div class="mod-meta">题区二 · 难度 ★★</div>
+            </div>
+          </div>
+          <div class="mod-body">
+            <ul>
+              <li>植物组织与器官的解剖结构</li>
+              <li>根、茎、叶的初生与次生生长</li>
+              <li>花、果实、种子发育</li>
+              <li>藻类到被子植物的分类与代表类群</li>
+              <li>苔藓、蕨类、裸子植物的生活史</li>
+            </ul>
+          </div>
+          <div class="mod-foot"><b>教材</b>　周云龙《植物生物学》／陆时万《植物学》</div>
+        </div>
+
+        <div class="mod">
+          <div class="mod-top">
+            <div class="mod-ico">💧</div>
+            <div class="mod-title">
+              <h3>植物生理学</h3>
+              <div class="mod-meta">题区二 · 难度 ★★★</div>
+            </div>
+          </div>
+          <div class="mod-body">
+            <ul>
+              <li>水分代谢、蒸腾与气孔调节</li>
+              <li>矿质营养与缺素症</li>
+              <li>光合作用：光反应、碳同化、C3/C4/CAM</li>
+              <li>五大类植物激素的作用与相互关系</li>
+              <li>光形态建成、成花诱导、休眠与萌发</li>
+            </ul>
+          </div>
+          <div class="mod-foot"><b>教材</b>　潘瑞炽《植物生理学》／武维华《植物生理学》</div>
+        </div>
+
+        <!-- 题区三 -->
+        <div class="mod">
+          <div class="mod-top">
+            <div class="mod-ico">🐚</div>
+            <div class="mod-title">
+              <h3>动物学</h3>
+              <div class="mod-meta">题区三 · 难度 ★★</div>
+            </div>
+          </div>
+          <div class="mod-body">
+            <ul>
+              <li>各门动物体制、对称性、胚层</li>
+              <li>无脊椎动物主要类群特征</li>
+              <li>脊索动物与脊椎动物各纲</li>
+              <li>比较解剖：循环、呼吸、排泄、神经</li>
+              <li>动物行为学基础（本能、学习、社会行为）</li>
+            </ul>
+          </div>
+          <div class="mod-foot"><b>教材</b>　刘凌云《普通动物学》</div>
+        </div>
+
+        <div class="mod">
+          <div class="mod-top">
+            <div class="mod-ico">❤️</div>
+            <div class="mod-title">
+              <h3>动物生理学</h3>
+              <div class="mod-meta">题区三 · 难度 ★★★★</div>
+            </div>
+          </div>
+          <div class="mod-body">
+            <ul>
+              <li>神经：静息电位、动作电位、突触传递</li>
+              <li>肌肉收缩机制</li>
+              <li>血液、循环与血压调节</li>
+              <li>呼吸、消化、排泄与渗透调节</li>
+              <li>内分泌系统与激素调节轴</li>
+              <li>免疫系统基础</li>
+            </ul>
+          </div>
+          <div class="mod-foot"><b>教材</b>　王玢／左明雪《人体及动物生理学》</div>
+        </div>
+
+        <div class="mod">
+          <div class="mod-top">
+            <div class="mod-ico">🌍</div>
+            <div class="mod-title">
+              <h3>生态学</h3>
+              <div class="mod-meta">题区三 · 难度 ★★</div>
+            </div>
+          </div>
+          <div class="mod-body">
+            <ul>
+              <li>种群：增长模型、生命表、种间关系</li>
+              <li>群落：结构、演替、生物多样性</li>
+              <li>生态系统：能量流动、物质循环</li>
+              <li>全球变化与保护生物学</li>
+              <li>行为生态与适应</li>
+            </ul>
+          </div>
+          <div class="mod-foot"><b>教材</b>　牛翠娟《基础生态学》</div>
+        </div>
+
+        <!-- 题区四 -->
+        <div class="mod">
+          <div class="mod-top">
+            <div class="mod-ico">🧮</div>
+            <div class="mod-title">
+              <h3>遗传学</h3>
+              <div class="mod-meta">题区四 · 难度 ★★★★</div>
+            </div>
+          </div>
+          <div class="mod-body">
+            <ul>
+              <li>孟德尔定律与扩展、概率计算</li>
+              <li>连锁交换与基因作图</li>
+              <li>染色体畸变与数目变异</li>
+              <li>伴性遗传、母体效应</li>
+              <li>群体遗传：Hardy-Weinberg</li>
+              <li>数量性状与近交衰退</li>
+            </ul>
+          </div>
+          <div class="mod-foot"><b>教材</b>　刘祖洞《遗传学》／朱军《遗传学》</div>
+        </div>
+
+        <div class="mod">
+          <div class="mod-top">
+            <div class="mod-ico">🌳</div>
+            <div class="mod-title">
+              <h3>演化生物学</h3>
+              <div class="mod-meta">题区四 · 难度 ★★★</div>
+            </div>
+          </div>
+          <div class="mod-body">
+            <ul>
+              <li>自然选择、遗传漂变、基因流</li>
+              <li>物种形成方式</li>
+              <li>适应与性选择</li>
+              <li>系统发育与分类学基础</li>
+              <li>生命起源与重大演化事件</li>
+            </ul>
+          </div>
+          <div class="mod-foot"><b>教材</b>　沈银柱《进化生物学》</div>
+        </div>
+
+        <div class="mod">
+          <div class="mod-top">
+            <div class="mod-ico">💻</div>
+            <div class="mod-title">
+              <h3>生物信息学</h3>
+              <div class="mod-meta">题区四 · 难度 ★★★</div>
+            </div>
+          </div>
+          <div class="mod-body">
+            <ul>
+              <li>序列比对（BLAST、多序列比对）</li>
+              <li>系统树构建与解读</li>
+              <li>基因组结构与注释</li>
+              <li>基础统计：t 检验、卡方检验</li>
+            </ul>
+          </div>
+          <div class="mod-foot"><b>教材</b>　竞赛讲义相关章节 ＋ 真题实操</div>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="plan.html">下一步：排时间表 →</a>
+        <a class="btn" href="drill.html">先做几道题试试</a>
+      </div>
+    </section>
+
+  </div>
+</section>
+<section class="pane" id="pane-res">
+  <div class="wrap">
+
+    <section class="hero rise">
+      <div class="eyebrow">04 · 资源库</div>
+      <h1>少而准的<span>书单</span>，<br>胜过一百个网盘链接</h1>
+      <p class="lead" style="max-width:660px">
+        生物竞赛最大的坑不是资料太少，而是资料太多。下面这份清单按"必须 / 推荐 / 可选"三级排列，
+        先把"必须"那 6 本读完，再考虑其他的。
+      </p>
+    </section>
+
+    <!-- 真题 -->
+    <section class="section rise d1">
+      <div class="section-head">
+        <h2>历年联赛真题</h2>
+        <span class="faint">2025 年起改为判断式题型</span>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr><th>年份</th><th>题量</th><th>总分</th><th>时长</th><th>题型</th><th>备注</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="num">2026</td><td class="num">72</td><td class="num">144</td><td class="num">150 min</td><td><span class="tag tag-mint">判断式</span></td><td>四大板块各 18 题</td></tr>
+            <tr><td class="num">2025</td><td class="num">72</td><td class="num">144</td><td class="num">150 min</td><td><span class="tag tag-mint">判断式</span></td><td>现行题型的起点</td></tr>
+            <tr><td class="num">2024</td><td class="num">—</td><td class="num">169</td><td class="num">120 min</td><td><span class="tag">单选 + 多选</span></td><td>旧题型末段</td></tr>
+            <tr><td class="num">2023</td><td class="num">100</td><td class="num">125</td><td class="num">120 min</td><td><span class="tag">单选 + 多选</span></td><td>多选题需全对才得分</td></tr>
+            <tr><td class="num">2022</td><td class="num">105</td><td class="num">143</td><td class="num">120 min</td><td><span class="tag">单选 + 多选</span></td><td>—</td></tr>
+            <tr><td class="num">2021</td><td class="num">100</td><td class="num">139</td><td class="num">120 min</td><td><span class="tag">单选 + 多选</span></td><td>含 30 道多选</td></tr>
+            <tr><td class="num">2020</td><td class="num">103</td><td class="num">121</td><td class="num">120 min</td><td><span class="tag">单选 + 多选</span></td><td>—</td></tr>
+            <tr><td class="num">2019 及以前</td><td class="num">—</td><td class="num">—</td><td class="num">120 min</td><td><span class="tag">单选 + 多选</span></td><td>题型稳定，可作背景题源</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="note warn" style="margin-top:14px">
+        <b>怎么用这几套题</b>　2025 年之后的 2 套按"整卷限时"用，体会判断题的节奏；
+        2024 年及以前的老题<b>不要整卷做</b>，拆成知识点分类用——它们的价值是"考什么"，不是"怎么考"。
+        把老题的题点当成考点清单来反推教材重点，效率最高。
+      </div>
+    </section>
+
+    <!-- 教材 -->
+    <section class="section rise d2">
+      <div class="section-head"><h2>教材优先级</h2></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>级别</th><th>书名</th><th>作者</th><th>用途</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><span class="tag tag-mint">必须</span></td>
+              <td>普通生物学（第 4 版）</td><td>陈阅增</td>
+              <td>零基础总纲，第一本读完的书</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-mint">必须</span></td>
+              <td>细胞生物学</td><td>翟中和</td>
+              <td>题区一核心，配合图谱读</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-mint">必须</span></td>
+              <td>普通动物学</td><td>刘凌云</td>
+              <td>题区三的形态学基础，图解为主</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-mint">必须</span></td>
+              <td>植物生物学 / 植物学</td><td>周云龙 / 陆时万</td>
+              <td>题区二的解剖与分类</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-mint">必须</span></td>
+              <td>遗传学</td><td>刘祖洞 或 朱军</td>
+              <td>题区四，计算题必须动手算</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-mint">必须</span></td>
+              <td>基础生态学</td><td>牛翠娟</td>
+              <td>题区三，最容易拿分的一科</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-sky">推荐</span></td>
+              <td>生物化学</td><td>王镜岩 / 杨荣武</td>
+              <td>题区一难点，重点读酶与代谢</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-sky">推荐</span></td>
+              <td>植物生理学</td><td>潘瑞炽 / 武维华</td>
+              <td>题区二，光合与激素是高频</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-sky">推荐</span></td>
+              <td>人体及动物生理学</td><td>王玢 / 左明雪</td>
+              <td>题区三难点，神经与内分泌为主</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-sky">推荐</span></td>
+              <td>微生物学教程</td><td>周德庆</td>
+              <td>题区二，篇幅友好，性价比高</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-amber">可选</span></td>
+              <td>现代分子生物学</td><td>朱玉贤</td>
+              <td>有余力再读，重在中心法则与调控</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-amber">可选</span></td>
+              <td>进化生物学</td><td>沈银柱</td>
+              <td>题区四小分值，读薄本即可</td>
+            </tr>
+            <tr>
+              <td><span class="tag tag-violet">辅导书</span></td>
+              <td>高中生物奥赛讲义</td><td>苏宏鑫</td>
+              <td>竞赛视角串讲 + 习题，用于查漏，不能替代教材</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 工具 -->
+    <section class="section rise d3">
+      <div class="section-head"><h2>工具与信息源</h2></div>
+      <div class="grid g2">
+        <div class="card">
+          <h3>官方信息</h3>
+          <p style="font-size:13.5px;margin:0">
+            中国动物学会、中国植物学会是赛事主办方，全国中学生生物学竞赛委员会发布联赛与决赛通知。
+            每年 3—4 月的联赛报名、8 月的决赛通知都从这里出。另外务必盯住<b>学校生物老师</b>——
+            实际报名窗口是学校统一汇总的，错过校内截止就等于弃赛。
+          </p>
+        </div>
+        <div class="card">
+          <h3>记忆工具</h3>
+          <p style="font-size:13.5px;margin:0">
+            Anki 或任意间隔重复卡片工具。生物竞赛的记忆量极大（分类类群、结构名称、激素作用、代谢步骤），
+            靠重读是记不住的。建议每学完一章就做 15—20 张卡，考前只需过卡组。
+          </p>
+        </div>
+        <div class="card">
+          <h3>图与结构</h3>
+          <p style="font-size:13.5px;margin:0">
+            生物学竞赛有大量"看图判断"。推荐练习方式：<b>默画</b>。合上书，画出叶的横切、
+            肾单位、心脏血流、减数分裂各期，画完再对照教材。比看十遍图有用。
+          </p>
+        </div>
+        <div class="card">
+          <h3>实验条件</h3>
+          <p style="font-size:13.5px;margin:0">
+            决赛实验占一半分，而联赛阶段几乎没人练。若目标真是省队，高一就要争取进学校实验室：
+            显微镜操作、显微测微、徒手切片、简单染色，这四项是基础中的基础。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 避坑 -->
+    <section class="section rise d4">
+      <div class="section-head"><h2>四个坑，别踩</h2></div>
+      <div class="grid g2">
+        <div class="card" style="border-color:rgba(255,122,138,.25)">
+          <h3 style="color:var(--rose)">✕ 囤资料</h3>
+          <p style="font-size:13.5px;margin:0">收藏了 500G 网盘不等于学会了。选 6 本书读完，胜过分 60 本书的各前 10 页。</p>
+        </div>
+        <div class="card" style="border-color:rgba(255,122,138,.25)">
+          <h3 style="color:var(--rose)">✕ 只看视频</h3>
+          <p style="font-size:13.5px;margin:0">看课时感觉"都懂"，考场上判断不出来。判断式题型考的是<b>细节确定性</b>，只有动笔才能暴露漏洞。</p>
+        </div>
+        <div class="card" style="border-color:rgba(255,122,138,.25)">
+          <h3 style="color:var(--rose)">✕ 一开始就刷难题</h3>
+          <p style="font-size:13.5px;margin:0">零基础直接上国赛题，只会产生"我不行"的错误结论。基础分占绝大多数，先把 1 分题拿稳。</p>
+        </div>
+        <div class="card" style="border-color:rgba(255,122,138,.25)">
+          <h3 style="color:var(--rose)">✕ 牺牲课内</h3>
+          <p style="font-size:13.5px;margin:0">竞赛是长跑，课内成绩塌了会被家长和学校叫停，这是竞赛生最常见的出局方式，不是知识难度。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="drill.html">下一步：做一练 →</a>
+      </div>
+    </section>
+
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-inner"></div>
+</footer>
+
+<button class="totop" aria-label="回到顶部">↑</button>
+
+<script src="app.js"></script>
+<script src="guide.js"></script>
+<script src="kg-texts.js"></script>
+<script src="edit.js"></script>
+<script src="supabase-config.js"></script>
+<script src="account.js"></script>
+</body>
+</html>
